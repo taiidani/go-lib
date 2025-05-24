@@ -1,6 +1,6 @@
 module github.com/taiidani/go-lib
 
-go 1.24.2
+go 1.24.1
 
 require (
 	github.com/google/uuid v1.6.0
