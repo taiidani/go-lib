@@ -19,7 +19,7 @@ type Session struct {
 	backend cache.Cache
 }
 
-func NewSession(ctx context.Context, backend cache.Cache) Session {
+func NewSession(backend cache.Cache) Session {
 	return Session{
 		Name:    "session",
 		Secure:  true,
