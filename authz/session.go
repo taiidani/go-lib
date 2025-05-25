@@ -63,7 +63,7 @@ func (s *Session) Get(r *http.Request, sess any) error {
 	cookie, err := r.Cookie(s.Name)
 	if err != nil {
 		// No cookie 🍪
-		return nil
+		return err
 	}
 
 	err = s.backend.Get(r.Context(), "session:"+cookie.Value, &sess)
@@ -78,7 +78,7 @@ func (s *Session) Update(r *http.Request, sess any) error {
 	cookie, err := r.Cookie(s.Name)
 	if err != nil {
 		// No cookie 🍪
-		return fmt.Errorf("no session found to update")
+		return err
 	}
 
 	err = s.backend.Set(r.Context(), "session:"+cookie.Value, &sess, s.TTL)
